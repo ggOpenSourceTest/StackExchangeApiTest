@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
-using System.Text;
 
 namespace StackExchangeApiTest
 {
@@ -71,66 +66,6 @@ namespace StackExchangeApiTest
             int remainder;
             int quotient = Math.DivRem(x, y, out remainder);
             return remainder == 0 ? quotient : quotient + 1;
-        }
-    }
-
-    [DataContract]
-    public class Total
-    {
-        [DataMember(Name = "total")]
-        public int TotalQuestions { get; set; }
-    }
-
-    [DataContract]
-    public class QuestionViewCount
-    {
-        [DataMember(Name = "items")]
-        public List<ViewCount> ViewCounts { get; set; }
-    }
-
-    [DataContract]
-    public class ViewCount
-    {
-        [DataMember(Name = "view_count")]
-        public int Count { get; set; }
-    }
-
-    public static class DateTimeExtensions
-    {
-        public static long ToUnixTimestamp(this DateTime d)
-        {
-            var duration = d - new DateTime(1970, 1, 1, 0, 0, 0);
-
-            return (long)duration.TotalSeconds;
-        }
-    }
-
-    public class JsonHelper
-    {
-        /// <summary>
-        /// JSON Serialization
-        /// </summary>
-        public static string JsonSerializer<T>(T t)
-        {
-            var ser = new DataContractJsonSerializer(typeof(T));
-            var ms = new MemoryStream();
-            ser.WriteObject(ms, t);
-            string jsonString = Encoding.UTF8.GetString(ms.ToArray());
-            ms.Close();
-            return jsonString;
-        }
-        /// <summary>
-        /// JSON Deserialization
-        /// </summary>
-        public static T JsonDeserialize<T>(string jsonString)
-        {
-            var ser = new DataContractJsonSerializer(typeof(T));
-            T obj;
-            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(jsonString)))
-            {
-                 obj = (T) ser.ReadObject(ms);
-            }
-            return obj;
         }
     }
 }
