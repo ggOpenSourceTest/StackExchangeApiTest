@@ -15,6 +15,7 @@ namespace StackExchangeApiTest
                 var totalNumberofQuestions = NumberOfQuestionsAsked(resultDay, client);
                 Console.WriteLine(string.Format("Number of questions asked {0}", totalNumberofQuestions));
                 Console.WriteLine(string.Format("Number of views are {0} across {1}", TotalNumberOfViewsAcrossAllQuestions(resultDay, client, totalNumberofQuestions), totalNumberofQuestions)); 
+                // TODO:Distinct (i.e. no duplicates) comma separated list of the tags used across all questions for that date, ordered alphabetically.
             }
             else
             {
@@ -39,7 +40,6 @@ namespace StackExchangeApiTest
             }
 
             return viewCount;
-            //Console.WriteLine(string.Format("QuestionsTotal Number of questions asked {0}", client.Execute(request)));
         }
 
         private static RestRequest GetRequest(DateTime resultDay)
@@ -58,7 +58,6 @@ namespace StackExchangeApiTest
             var response = client.Execute(request);
             var result = JsonHelper.JsonDeserialize<Total>(response);
             return result.TotalQuestions;
-            //Console.WriteLine(string.Format("QuestionsTotal Number of questions asked {0}", client.Execute(request)));
         }
 
         public static int DivideRoundingUp(int x, int y)

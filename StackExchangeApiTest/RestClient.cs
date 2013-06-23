@@ -13,7 +13,6 @@ namespace StackExchangeApiTest
 
         public RestClient(string apiUrl)
         {
-            // TODO: Complete member initialization
             this.ApiUrl = apiUrl;
         }
 
