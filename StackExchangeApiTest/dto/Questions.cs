@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace StackExchangeApiTest
+namespace StackExchangeApiTest.dto
 {
     [DataContract]
-    public class QuestionViewCount
+    public class Questions
     {
         [DataMember(Name = "items")]
-        public List<ViewCount> ViewCounts { get; set; }
+        public List<QuestionItem> Items { get; set; }
     }
+
+
 }

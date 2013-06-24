@@ -42,17 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dto\StackOverFlowInfo.cs" />
     <Compile Include="Helpers\DateTimeExtensions.cs" />
     <Compile Include="HttpVerb.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Parameter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="dto\QuestionViewCount.cs" />
+    <Compile Include="dto\Questions.cs" />
     <Compile Include="RestClient.cs" />
     <Compile Include="RestRequest.cs" />
     <Compile Include="dto\Total.cs" />
-    <Compile Include="dto\ViewCount.cs" />
+    <Compile Include="dto\QuestionItem.cs" />
+    <Compile Include="StackOverflowInfoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

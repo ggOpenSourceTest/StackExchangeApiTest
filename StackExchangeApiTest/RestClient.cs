@@ -9,16 +9,16 @@ namespace StackExchangeApiTest
 {
     public class RestClient
     {
-        private string ApiUrl;
+        private readonly string _apiUrl;
 
         public RestClient(string apiUrl)
         {
-            this.ApiUrl = apiUrl;
+            this._apiUrl = apiUrl;
         }
 
         public string Execute(RestRequest request)
         {
-            return GetResponseValue(ToHttpWebRequest(request, ApiUrl));
+            return GetResponseValue(ToHttpWebRequest(request, _apiUrl));
         }
 
         private HttpWebRequest ToHttpWebRequest(RestRequest request, string apiUrl)
