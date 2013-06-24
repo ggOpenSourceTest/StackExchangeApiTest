@@ -7,6 +7,7 @@ using System.Text;
 
 namespace StackExchangeApiTest
 {
+    // TODO: Currently only GET is implemented. Expand the class to support other reuqest types (POST, PUT, DELETE).
     public class RestClient
     {
         private readonly string _apiUrl;
